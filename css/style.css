@@ -1,0 +1,126 @@
+html,
+body,
+* {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+/* ========== users ========== */
+/* ========== users ========== */
+.users-container {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-child {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  bottom: -100px;
+  transition: 0.2s ease-in-out;
+}
+
+.user-child:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  left: 200px;
+  bottom: -100px;
+}
+
+.user-child:hover {
+  bottom: 0px;
+}
+
+.popupUser {
+  bottom: 0px !important;
+}
+
+.user-child figure {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.user-child figure img {
+  width: 100%;
+}
+/* ========== Brushes ========== */
+/* ========== Brushes ========== */
+nav {
+  left: 0;
+  position: absolute;
+  padding: 0;
+  height: 100vh;
+}
+
+nav ul {
+  width: 100%;
+  padding: 0em;
+  margin: 0;
+  display: inline-block;
+
+}
+
+nav li {
+  list-style: none;
+  /* border-radius: 100px; */
+  font-weight: 300;
+  color: white;
+  padding: 1em;
+  padding-bottom: 1em;
+  /* background-color: rgba(56, 56, 56, 0.877); */
+  padding-top: 1em;
+
+}
+
+nav li:hover {
+  cursor: pointer;
+
+  background-color: rgba(26, 25, 25, 0.61);
+  transition: 0.2s ease-in-out;
+}
+
+nav li article {
+
+}
+nav li article img{
+  width:30px;
+}
+
+
+nav li section {
+  position: relative;
+}
+
+nav .color-user {
+  position: absolute;
+  background-color: black;
+  width: 10px;
+  right: -0px;
+  box-shadow: 0px 0px 5px 3px #1ccfc4;
+  top: -6px;
+  height: 10px;
+  border-radius: 100px;
+}
+
+nav li:nth-child(2) .color-user {
+  background-color: red;
+
+}
+
+nav li:nth-child(3) .color-user {
+  background-color: yellow;
+
+}
