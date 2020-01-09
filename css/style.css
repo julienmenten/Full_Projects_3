@@ -1,3 +1,20 @@
+/* ========== Constants ========== */
+/* ========== Constants ========== */
+:root {
+  --redBG: #FF003C;
+  --green: #00ffb2;
+  --lightgrey: #F7F7F7;
+  --mediumgrey: #909090;
+  --blackBG: #202020;
+}
+.blackBG{
+  background:var(--blackBG);
+}
+.redBG{
+  background:var(--redBG);
+}
+/* ========== Main ========== */
+/* ========== Main ========== */
 html,
 body,
 * {
@@ -11,16 +28,21 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-/* ========== users ========== */
-/* ========== users ========== */
+
+/* ========== Users ========== */
+/* ========== Users ========== */
 .users-container {
   position: absolute;
-  bottom: 0;
-  width: 200px;
+  bottom: 40px;
+  left: 50px;
+  width: 100px;
   display: flex;
   justify-content: space-between;
 }
-
+.users-wrap {
+display: inline-block;
+overflow: hidden;
+}
 .user-child {
   position: absolute;
   width: 100%;
@@ -35,7 +57,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  left: 200px;
+  left: 100px;
   bottom: -100px;
 }
 
@@ -56,33 +78,66 @@ body {
 .user-child figure img {
   width: 100%;
 }
+
+.user-child .color-user {
+  position: absolute;
+  width: 10px;
+  right: -0px;
+  box-shadow: 0px 0px 5px 3px #1ccfc4;
+  top: -6px;
+  height: 10px;
+  border-radius: 100px;
+}
+
+/* ========== Frame ========== */
+/* ========== Frame ========== */
+#frame {
+  z-index: 3;
+  width: calc(100% - 100px);
+    height: calc(100vh - 98px);
+    position: absolute;
+    overflow: hidden;
+    border: 50px solid #eee;
+    border-bottom-color: rgb(216, 189, 163);
+    border-left-color: rgb(214, 183, 153);
+    border-radius: 2px;
+    border-right-color: rgb(214, 183, 153);
+    border-top-color: rgb(211, 166, 124);
+    box-shadow: 0 0 5px 0 rgba(216, 95, 8, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+    
+}
+
 /* ========== Brushes ========== */
 /* ========== Brushes ========== */
 nav {
-  left: 0;
   position: absolute;
   padding: 0;
-  height: 100vh;
+width: 100%;
+  height: 100px;
+  display: flex;
+  bottom: 20px;
+  align-items: center;
+  background: rgb(34, 34, 34);
 }
 
 nav ul {
-  width: 100%;
   padding: 0em;
+  width: calc(100% - 50px);
   margin: 0;
-  display: inline-block;
-
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
 }
 
 nav li {
   list-style: none;
-  /* border-radius: 100px; */
   font-weight: 300;
   color: white;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 1em;
   padding-bottom: 1em;
-  /* background-color: rgba(56, 56, 56, 0.877); */
   padding-top: 1em;
-
 }
 
 nav li:hover {
@@ -93,10 +148,17 @@ nav li:hover {
 }
 
 nav li article {
-
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-nav li article img{
-  width:30px;
+
+nav li article p {
+  margin-right: 1em;
+}
+
+nav li article img {
+  width: 30px;
 }
 
 
@@ -106,7 +168,6 @@ nav li section {
 
 nav .color-user {
   position: absolute;
-  background-color: black;
   width: 10px;
   right: -0px;
   box-shadow: 0px 0px 5px 3px #1ccfc4;
@@ -115,12 +176,5 @@ nav .color-user {
   border-radius: 100px;
 }
 
-nav li:nth-child(2) .color-user {
-  background-color: red;
 
-}
 
-nav li:nth-child(3) .color-user {
-  background-color: yellow;
-
-}

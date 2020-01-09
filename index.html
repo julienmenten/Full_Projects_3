@@ -3,72 +3,93 @@
 
 <head>
   <!-- <script src="https://cdn.jsdelivr.net/gh/kinectron/kinectron@0.3.0/client/dist/kinectron-client.js"></script> -->
+  
   <script src="js/kinectron.js"></script>
   <script src="js/p5.min.js"></script>
+  <script src="js/jquery.js"></script>
+  
   <script src="js/kinectron.bundle.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
+  <header>
+    <!-- ========== NAV ==========  -->
+    <!-- ========== NAV ==========  -->
+    <nav>
+      <ul>
+        <li>
+          <section>
+            <article><p>Green</p><img src="img/green.png" alt="gras"></article>
+            <div class="color-user"></div>
+          </section>
+        </li>
+        <li>
+          <section>
+            <article><p>Gold</p><img src="img/gold.png" alt="gras"></article>
+            <div class="color-user"></div>
+          </section>
+        </li>
+        <li>
+          <section>
+            <article><p>Blue</p><img src="img/blue.png" alt="gras"></article>
+            <!-- <div  class="color-user"></div> -->
+          </section>
 
-  <section class='users-container'>
-    <article class='user-child' id='firstPlayer'>
-      <figure> <img src="img/man.png"></figure>
+        </li>
+        <li>
+          <section>
+            <article><p>Pink</p><img src="img/pink.png" alt="gras"></article>
+            <!-- <div  class="color-user"></div> -->
+          </section>
 
-    </article>
-    <article class='user-child' id='secondPlayer'>
-      <figure> <img src="img/woman.png"></figure>
-    </article>
-  </section>
-  <nav>
-    <ul>
-      <li>
-        <section>
-          <article><img src="img/gras.png" alt="gras"></article>
-          <div class="color-user"></div>
-        </section>
-      </li>
-      <li>
-        <section>
-          <article><img src="img/cursor1.png" alt="gras"></article>
-          <div  class="color-user"></div>
-        </section>
-      </li>
-      <li>
-        <section>
-          <article><img src="img/gras.png" alt="gras"></article>
-          <!-- <div  class="color-user"></div> -->
-        </section>
-        
-      </li>
-      <li>
-        <section>
-          <article><img src="img/gras.png" alt="gras"></article>
-          <!-- <div  class="color-user"></div> -->
-        </section>
-        
-      </li>
-      <li>
-        <section>
-          <article><img src="img/gras.png" alt="gras"></article>
-          <!-- <div  class="color-user"></div> -->
-        </section>
-        
-      </li>
-      <li>
-        <section>
-          <article><img src="img/gras.png" alt="gras"></article>
-          <!-- <div  class="color-user"></div> -->
-        </section>
-        
-      </li>
-    </ul>
-  </nav>
+        </li>
+        <li>
+          <section>
+            <article><p>Orange</p><img src="img/orange.png" alt="gras"></article>
+            <!-- <div  class="color-user"></div> -->
+          </section>
 
-  <!-- <script src="sketch.js"></script> -->
+        </li>
+        <li>
+          <section>
+            <article><p>Black</p><img src="img/black.png" alt="gras"></article>
+            <!-- <div  class="color-user"></div> -->
+          </section>
+
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== USERS ==========  -->
+    <!-- ========== USERS ==========  -->
+    <section class='users-container'>
+      <section class="users-wrap">
+        <article class='user-child' id='firstPlayer'>
+          <figure> <img src="img/man.png"></figure>
+          <div class="color-user "></div>
+
+        </article>
+        <article class='user-child' id='secondPlayer'>
+          <figure> <img src="img/woman.png"></figure>
+          <div class="color-user "></div>
+        </article>
+      </section>
+
+    </section>
+    <!-- ========== FRAME ==========  -->
+    <!-- ========== FRAME ==========  -->
+    <section id="frame"></section>
+
+  </main>
+
+
+
+
+
   <script src="js/skeleton.js"></script>
-
-
 </body>
 
 </html>
