@@ -29,7 +29,7 @@ let sentTime = Date.now();
 let currentFrame = 0;
 let recorded_skeleton;
 let recorded_data_file = "./recorded_skeleton.json";
-let brushindex=[];
+let brushindex = [];
 
 console.log(brushcounter);
 
@@ -104,30 +104,63 @@ function initKinectron() {
 // ========= TRACK THE BODY ========== //
 // ========= TRACK THE BODY ========== //
 function bodyTracked(body) {
- 
+  $("nav li").removeClass("hoverBrush");
+
   for (let key in newHands) {
     let trackedHand = newHands[key];
+    console.log(trackedHand.joints[11].depthX*width/2);
     if (body.trackingId in newHands) {
       // console.log("user bestaat al")
-      if (trackedHand.joints[11].depthX * width < 100 && (trackedHand.joints[11].depthY * height > 100 && trackedHand.joints[11].depthY * height < 150)) {
-        brushindex[key]=2;
-      }else if (typeof brushindex[key] === "undefined") {
+      if (typeof brushindex[key] === "undefined") {
         // console.log("is er al");
-        brushindex[key]=0
+        brushindex[key] = 0
       }
-    } else {
-      // console.log("user bestaat nog niet")
-      
+      //GREEN BRUSH//
+      //GREEN BRUSH//
+      else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX *width< (width / 2 - 200) && trackedHand.joints[11].depthX * width > (width / 2 - 300))) {
+        brushindex[key] = 0;
+        $("nav li.green").addClass("hoverBrush");
+      } 
+      //GOLD BRUSH//
+      //GOLD BRUSH//
+      else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX * width < (width / 2 - 100) && trackedHand.joints[11].depthX * width > (width / 2 - 200))) {
+        brushindex[key] = 1;
+        $("nav li.gold").addClass("hoverBrush");
+      }
+      //BLUE BRUSH//
+      //BLUE BRUSH//
+       else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX * width < (width / 2) && trackedHand.joints[11].depthX *width> (width / 2 - 100))) {
+        brushindex[key] = 2;
+        $("nav li.blue").addClass("hoverBrush");
+      } 
+      //PINK BRUSH//
+      //PINK BRUSH//
+      else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX *width> (width / 2) && trackedHand.joints[11].depthX *width< (width / 2 + 100))) {
+        brushindex[key] = 3;
+        $("nav li.pink").addClass("hoverBrush");
+      } 
+      //ORANGE BRUSH//
+      //ORANGE BRUSH//
+      else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX *width> (width / 2 + 100) && trackedHand.joints[11].depthX * width<(width / 2 + 200))) {
+        brushindex[key] = 4;
+        $("nav li.orange").addClass("hoverBrush");
+      }
+      //BLACK BRUSH//
+      //BLACK BRUSH//
+      else if (trackedHand.joints[11].depthY * height > height - 100 && (trackedHand.joints[11].depthX *width> (width / 2 + 200) && trackedHand.joints[11].depthX *width< (width / 2 + 300))) {
+        brushindex[key] = 5;
+        $("nav li.black").addClass("hoverBrush");
+      }
     }
     //size of brush
-    let size = (trackedHand.joints[11].cameraZ * 2) * 25;
-   
+    let size = (trackedHand.joints[11].cameraZ * 2) * 15;
+
     trackedHand.rightHandState = translateHandState(trackedHand.rightHandState);
     drawHands(trackedHand, size, brushindex[key]);
-    
+
   }
   newHands[body.trackingId] = body;
-  
+
   //count users
   var count = Object.keys(newHands).length;
 
