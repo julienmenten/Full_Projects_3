@@ -4,7 +4,7 @@
 console.log("jquery ready")
 let liveData = true;
 // fill in kinectron ip address here ie. "127.16.231.33"
-let kinectronIpAddress = "10.3.208.54";
+let kinectronIpAddress = "10.3.208.104";
 // declare kinectron
 let kinectron = null;
 let lastX;
@@ -108,11 +108,9 @@ function bodyTracked(body) {
 
   for (let key in newHands) {
     let trackedHand = newHands[key];
-    console.log(trackedHand.joints[11].depthX*width/2);
+    
     if (body.trackingId in newHands) {
-      // console.log("user bestaat al")
-      if (typeof brushindex[key] === "undefined") {
-        // console.log("is er al");
+      if (typeof brushindex[key] === "undefined") {        
         brushindex[key] = 0
       }
       //GREEN BRUSH//
@@ -154,7 +152,6 @@ function bodyTracked(body) {
     }
     //size of brush
     let size = (trackedHand.joints[11].cameraZ * 2) * 15;
-
     trackedHand.rightHandState = translateHandState(trackedHand.rightHandState);
     drawHands(trackedHand, size, brushindex[key]);
 
@@ -163,8 +160,10 @@ function bodyTracked(body) {
 
   //count users
   var count = Object.keys(newHands).length;
+  // console.log(count);
 
   if (count == 1) {
+    $(".user").removeClass("popupUser");
     $("nav li").first().find(".color-user").addClass("blackBG");
     $("#firstPlayer").find(".color-user").addClass("blackBG");
     $("#firstPlayer").addClass("popupUser");
@@ -172,6 +171,8 @@ function bodyTracked(body) {
     $("#secondPlayer").addClass("popupUser");
     $("#secondPlayer").find(".color-user").addClass("redBG");
     $("nav li:nth-child(2)").find(".color-user").addClass("redBG");
+  }else if (count > 2){
+    console.log("meer dan 2");
   }
 }
 
@@ -233,12 +234,11 @@ function updateHandState(handState, hand, size, brush) {
 // draw the hands based on their state
 function drawHand(hand, handState, size, brush) {
   if (handState === 1) {
-    // console.log(brushes[brush]);
     //  image(brushes[1],hand.depthX * width, hand.depthY * height, size,size);
   }
 
   if (handState === 0) {
-    state = "descending";
+    
     image(brushes[brush], hand.depthX * width, hand.depthY * height, size, size);
 
   }
