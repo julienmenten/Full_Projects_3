@@ -35,7 +35,7 @@ function setup() {
   noStroke();
 
   if (liveData) initKinectron();
-}
+} 
 
 function draw() {
   if (!liveData) loopRecordedData();

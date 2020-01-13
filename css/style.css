@@ -28,7 +28,13 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-
+#timer{
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
 /* ========== Users ========== */
 /* ========== Users ========== */
 .users-container {
@@ -96,7 +102,7 @@ overflow: hidden;
     height: calc(100vh - 98px);
     position: absolute;
     overflow: hidden;
-    border: 50px solid #eee;
+    border: 50px solid #fFFF;
     border-bottom-color: rgb(216, 189, 163);
     border-left-color: rgb(214, 183, 153);
     border-radius: 2px;

@@ -101,6 +101,7 @@ function draw(state) {
   timer++
   if (timer == 30000) {
     timer = 0;
+    // CODE VOOR RESULTAAT OP TE SLAAN
     background(255);
   }
 }
