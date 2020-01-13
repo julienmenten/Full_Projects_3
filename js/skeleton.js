@@ -1,6 +1,6 @@
 // ========= VARS ========== //
 // ========= VARS ========== //
-
+"use strict"
 
 let liveData = true;
 // fill in kinectron ip address here ie. "127.16.231.33"
@@ -31,7 +31,7 @@ let recorded_skeleton;
 let recorded_data_file = "./recorded_skeleton.json";
 let brushindex = [];
 // Timer voor refresh variables
-let timer = 10;
+let timer = 15;
 
 console.log(brushcounter);
 
@@ -251,37 +251,45 @@ function drawHand(hand, handState, size, brush) {
 
   }
 }
-jQuery(document).ready(function () {
-  console.log("jquery ready");
-  timer + 1;
-  setInterval(() => {
-    $("#timer").html(timer);
-    timer--;
-    if (timer == 0) {
-      timer = 10;
-      // CODE VOOR RESULTAAT OP TE SLAAN
-      downloadCanvas();
-      background(255);
-    }
-  }, 1000);
+// jQuery(document).ready(function () {
+    setInterval(() => {
+      
+      $("#timer").html(timer);
+      timer--;
+      if (timer == 0) {
+        
+        
+        // CODE VOOR RESULTAAT OP TE SLAAN
+        downloadCanvas();
+      }
+    }, 1000);
+  
 
-  function downloadCanvas() {
-    var canvas = document.getElementById("defaultCanvas0");
-    var img = canvas.toDataURL("image/jpg");
-    $("#myImg").attr("src", img);
-    $("#myImgUrl").attr("href", img);
-    
-    $.ajax({
-      url: "http://10.3.208.75:3000/api/uploadImage",
-      method: "POST",
-      data: img
-    }).done(function(data) {
-      console.log("Upload complete")
-      console.log(data);
-    }).fail(function (err, err2) {
-      console.log(err, err2)
-    }).always(console.log("always"));
+
+  let downloadCanvas =() => {
+     let canvas = document.getElementById("defaultCanvas0");
+      let base64String = canvas.toDataURL("image/jpg");
+      console.log(base64String);
+      $.ajax({
+        url: "http://localhost:3000/api/uploadImage",
+        method: "POST",
+        data:base64String,
+        processData:false
+      }).done(function (data) {
+        timer = 15;
+        background(255);
+        console.log("Upload complete")
+        console.log(data);
+      }).fail(function (err, err2) {
+        console.log(err, err2)
+      }).always(function () {
+        console.log("always")
+      });
+  
+
     // download(img, "result.jpg", "image/jpg"); <----- WERKT!
     // download($('#myImg').attr('src'),"image1.jpg","image/jpg");
   }
-});
+
+
+// });
