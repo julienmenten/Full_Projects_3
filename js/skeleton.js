@@ -251,42 +251,39 @@ function drawHand(hand, handState, size, brush) {
 
   }
 }
-// jQuery(document).ready(function () {
-setInterval(() => {
+jQuery(document).ready(function () {
+  setInterval(() => {
 
-  $("#timer").html(timer);
-  timer--;
-  if (timer == 0) {
-
-
-    // CODE VOOR RESULTAAT OP TE SLAAN
-    downloadCanvas();
-  }
-}, 1000);
-
+    $("#timer").html(timer);
+    timer--;
+    if (timer == 0) {
+      timer = 15;
+      // CODE VOOR RESULTAAT OP TE SLAAN
+      downloadCanvas();
+    }
+  }, 1000);
 
 
-function downloadCanvas() {
-  var canvas = document.getElementById("defaultCanvas0");
-  var base64String = canvas.toDataURL("image/jpg");
-  // base64String.replace('data:image/png;base64,', '');
-  //  download(base64String);
-  $(".downloadImage").submit(function (e) {
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3000/api/uploadImage",
-      data: {
-        "photo": base64String
-      }, // serializes the form's elements.
-      success: function (data) {
-        timer = 15;
-        // console.log(data);
-        background(255); // show response from the php script.
-      }
+
+  function downloadCanvas() {
+    var canvas = document.getElementById("defaultCanvas0");
+    var base64String = canvas.toDataURL("image/jpg");
+    //  download(base64String);
+    $(".downloadImage").submit(function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/api/uploadImage",
+        data: {
+          "photo": base64String
+        }, // serializes the form's elements.
+        success: function (data) {
+          console.log(data);
+          window.location.replace("../pages/result.html");
+          // background(255); // show response from the php script.
+        }
+      });
     });
-  });
-  $(".downloadImage").submit();
-}
-
-
+    $(".downloadImage").submit();
+  }
+});

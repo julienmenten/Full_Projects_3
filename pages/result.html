@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resultscreen </title>
+    <link rel="stylesheet" href="../css/result.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="../js/jquery.fittext.js"></script>  -->
+    <script src="../js/result.js"></script>
+    <!-- <script src="../js/jquery.countdown360.min.js"></script> -->
+</head>
+
+<body>
+    <div id="resultPopUp">
+        <h3>Je tekende...</h3>
+        <div id="resultInformation">
+            <h1 id="resultTitle"></h1>
+            <h2 id="resultArtist">van <span> <span class="artistLastName"> </span></span></h2>
+            <h4 id="resultYear">Jaar: <span></span></h4>
+            <p id="resultDescription"></p>
+            <p id="resultLocation">Ontdek meer over dit schilderij in zaal <b><span></span></b></p>
+        </div>
+        <div class="paintings">
+            <div class="frame" id="yourPainting">
+                <div class='painting-wrap'>
+                    <!-- <img src="../img/resultPage/frame.png" alt="frame"> -->
+                    <!-- RESULTAAT VAN DE SPELERS HIER PLAATSEN-->
+                    <img id="paintedImage" class="painting" src="../img/resultPage/james-ensor-the-intrigue-1890.jpg"
+                        alt="">
+                </div>
+            </div>
+            <div class="frame" id="resultPainting">
+
+                <!-- <img src="../img/resultPage/frame.png" alt="frame"> -->
+                <!-- VERGELEKEN BEELD (AI) HIER PLAATSEN -->
+                <div class='painting-wrap'>
+                    <img id="paintedImage" class="painting" src="../backEnd/tensorflow/result/result.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="countdown">
+        </div>
+        <div id="logoKMSKA">
+            <img src="../img/resultPage/Logo_kmska.png" alt="Logo kmska">
+        </div>
+    </div>
+
+
+
+
+<!-- 
+    <form method="post" class="compareImage hide" action="#">
+        <button type='submit' name="submit"></button>
+    </form> -->
+
+
+</body>
+
+</html>

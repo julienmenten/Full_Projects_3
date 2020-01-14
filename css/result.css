@@ -1,0 +1,164 @@
+@font-face {
+    font-family: Gotham_Bold;
+    src: url(../fonts/Gotham-Bold.otf);
+  }
+  @font-face {
+    font-family: Gotham_Light;
+    src: url(../fonts/Gotham-Light.otf);
+  }
+  @font-face {
+    font-family: Gotham_Thin;
+    src: url(../fonts/Gotham-Thin.otf);
+  }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Gotham_Light, sans-serif;
+    color: white;
+}
+#resultPopUp{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.90);
+    display: grid;
+    grid-template-columns:0px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0px;
+    grid-column-gap: 20px;
+    grid-template-rows: 20px 100px 100px 100px 100px 100px 100px 100px 100px 100px 20px;
+}
+#resultInformation{
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end:8;
+    display: grid;
+    grid-template-rows: 100px 50px 40px 1fr 80px;
+    width: 100%;
+}
+#resultTitle{
+    font-family: Gotham_Bold;
+    text-transform: uppercase;
+    font-size: 100%;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end:2;
+    align-self: end;
+
+}
+h3{
+    font-family: Gotham_Thin;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end:4;
+    font-size: 2rem;
+    text-transform: uppercase;
+    align-self: end;
+}
+#resultArtist{
+    font-family: Gotham_Thin;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: end;
+    align-self: end;
+}
+.artistLastName{
+    text-transform: uppercase;
+}
+#resultYear{
+    font-family: Gotham_Thin;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: start;
+    align-self: end;
+}
+#resultDescription{
+    font-family: Gotham_Thin;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5; 
+    line-height: 140%;
+}
+#resultLocation{
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    align-self: end;
+}
+
+.paintings{
+    grid-column-start: 8;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    width: 100%;
+   
+}
+
+#yourPainting{
+    margin-top: 20px;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    transform: rotate(-6deg);
+}
+#resultPainting{
+    margin-top: 20px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    transform: rotate(6deg);
+}
+.frame{
+    position: relative;
+   
+}
+.frame img{
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: 20px;
+}
+.painting{
+    position: absolute;
+    left: 0;
+    top: 37.5px;
+    z-index: -1;
+    transform: scale(0.67);
+}
+#logoKMSKA{
+    grid-column-start: 12;
+    grid-column-end: 13;
+    grid-row-start: 9;
+    grid-row-end: 10;
+    align-self: center;
+}
+#logoKMSKA img{
+    width: 100%;
+}
+#countdown{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 9;
+    grid-row-end: 10;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+}
+#countdown p{
+    font-family: Gotham_Bold;
+    font-size: 2rem;
+    position: relative;
+}
+#countdown div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
