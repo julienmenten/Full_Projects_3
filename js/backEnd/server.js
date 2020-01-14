@@ -32,20 +32,21 @@ app.use(cors());
 
 
 // =======  UPLOAD IMAGES ========
-app.post('/api/uploadImage', (req, res) =>{
-// console.log("stap 1");
-    let imageBody = JSON.stringify(req.body);
-    let buff =  Buffer.from(imageBody);
-// let base64data = buff.toString('base64');
-console.log(buff);
-    // console.log(imageBody);
-    fs.writeFile('../../tensorflow/result/result.jpg', buff, function() {
-        console.log('The file has been saved!');
-        
-    })
-    res.send("lol")
-    
-})
+// =======  UPLOAD IMAGES ========
+const uploadImage = async (req, res, next) => {
+    try {
+        let imageBody = req.body.photo;
+        const path = '../../tensorflow/result/result.jpg'
+        data = imageBody.replace(/^data:image\/\w+;base64,/, '');
+        fs.writeFileSync(path, data, {
+            encoding: 'base64'
+        });
+        return res.send("File changed");
+    } catch (e) {
+        next(e);
+    }
+}
+app.post('/api/uploadImage', uploadImage);
 
 
 app.post("/api/runPython",(res,req)=>{

@@ -4,7 +4,7 @@
 
 let liveData = true;
 // fill in kinectron ip address here ie. "127.16.231.33"
-let kinectronIpAddress = "10.3.208.75";
+let kinectronIpAddress = "10.3.208.36";
 // declare kinectron
 let kinectron = null;
 let lastX;
@@ -252,44 +252,41 @@ function drawHand(hand, handState, size, brush) {
   }
 }
 // jQuery(document).ready(function () {
-    setInterval(() => {
-      
-      $("#timer").html(timer);
-      timer--;
-      if (timer == 0) {
-        
-        
-        // CODE VOOR RESULTAAT OP TE SLAAN
-        downloadCanvas();
-      }
-    }, 1000);
-  
+setInterval(() => {
+
+  $("#timer").html(timer);
+  timer--;
+  if (timer == 0) {
 
 
-  let downloadCanvas =() => {
-     let canvas = document.getElementById("defaultCanvas0");
-      let base64String = canvas.toDataURL("image/jpg");
-      console.log(base64String);
-      $.ajax({
-        url: "http://localhost:3000/api/uploadImage",
-        method: "POST",
-        data:base64String,
-        processData:false
-      }).done(function (data) {
-        timer = 15;
-        background(255);
-        console.log("Upload complete")
-        console.log(data);
-      }).fail(function (err, err2) {
-        console.log(err, err2)
-      }).always(function () {
-        console.log("always")
-      });
-  
-
-    // download(img, "result.jpg", "image/jpg"); <----- WERKT!
-    // download($('#myImg').attr('src'),"image1.jpg","image/jpg");
+    // CODE VOOR RESULTAAT OP TE SLAAN
+    downloadCanvas();
   }
+}, 1000);
 
 
-// });
+
+function downloadCanvas() {
+  var canvas = document.getElementById("defaultCanvas0");
+  var base64String = canvas.toDataURL("image/jpg");
+  // base64String.replace('data:image/png;base64,', '');
+  //  download(base64String);
+  $(".downloadImage").submit(function (e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/api/uploadImage",
+      data: {
+        "photo": base64String
+      }, // serializes the form's elements.
+      success: function (data) {
+        timer = 15;
+        // console.log(data);
+        background(255); // show response from the php script.
+      }
+    });
+  });
+  $(".downloadImage").submit();
+}
+
+

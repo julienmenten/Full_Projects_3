@@ -186,5 +186,9 @@ nav .color-user {
   border-radius: 100px;
 }
 
+form.hide{
+  display:none;
+}
+
 
 
