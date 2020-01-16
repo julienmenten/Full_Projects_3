@@ -278,7 +278,6 @@ def main(_):
       json.dump(image_to_labels, img_to_labels_out)
 
     print("all done")
-    exit()
+    return
 if __name__ == '__main__':
   tf.app.run()
-

@@ -2,34 +2,36 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require("path");
 const $ = require("jquery");
 const cors = require('cors');
+const osc = require("osc");
+const bodyparser = require("body-parser")
+const imageToVectorize = "result/result.jpg"
+var request = require('request');
 const {
     PythonShell
 } = require('python-shell')
-const pyShell = new PythonShell;
 
 
-const bodyparser = require("body-parser")
-
-let classify = 'tensorflow/classify_images.py';
+let classify = 'classify_images.py';
 let pythonExecutable = "C:/Users/Tom/Anaconda3/envs/3.5/python.exe";
-let pictureToVectorize = "tensorflow/result/result.jpg";
-let clusterVectors = 'tensorflow/cluster_vectors.py';
-
+let pictureToVectorize = "result/result.jpg";
+let clusterVectors = 'cluster_vectors.py';
 
 let options = {
-    pythonPath: pythonExecutable,
+    pythonPath:pythonExecutable,
     args: [pictureToVectorize]
 };
 let options2 = {
-    pythonPath: pythonExecutable
+    pythonPath:pythonExecutable
 };
 
 app.use(bodyparser.urlencoded({
     limit: '100mb',
     extended: true
 }))
+
 app.use(cors());
 
 
@@ -39,7 +41,7 @@ app.use(cors());
 const uploadImage = async (req, res, next) => {
     try {
         let imageBody = req.body.photo;
-        const path = 'tensorflow/result/result.jpg'
+        const path = 'result/result.jpg'
         data = imageBody.replace(/^data:image\/\w+;base64,/, '');
         fs.writeFileSync(path, data, {
             encoding: 'base64'
@@ -51,6 +53,7 @@ const uploadImage = async (req, res, next) => {
     }
 }
 
+
 // =======  Make vector ========
 // =======  Make vector ========
 let vectorizeImage = async (req, res) => {
@@ -59,13 +62,8 @@ let vectorizeImage = async (req, res) => {
         if (err) throw err;
         // results is an array consisting of messages collected during execution
         console.log('results: %j', results);
+        return res.send('test1');
       });
-      PythonShell.end(function (err, code, signal) {
-        if (err) throw err;
-        // results is an array consisting of messages collected during execution
-        console.log(err, code, signal);
-      });
-      
 }
 
 
@@ -76,18 +74,28 @@ let compareImage =  (req, res) => {
         if (err) throw err;
         // results is an array consisting of messages collected during execution
         console.log('results: %j', results);
+        return res.send('test2');
       });
-      PythonShell.end(function (err, code, signal) {
-        if (err) throw err;
-        // results is an array consisting of messages collected during execution
-        console.log(err, code, signal);
-      });
-      
+
+}
+
+
+// =======  Get similar images ========
+// =======  Get similar images ========
+const getSimilarImages = async (req, res, next) => {
+    // request('C:/wamp64/www/project3/backEnd/nearest_neighbors/result.json', function (error, response, body) {
+    //     console.log(error)
+    //   if (!error && response.statusCode == 200) {
+    //     console.log(body)
+    //     res.send(body);// Print the google web page.
+    //   }
+    // })
+    res.sendFile(path.join(__dirname + "/nearest_neighbors", "result.json"))
 }
 
 
 app.post('/api/uploadImage', uploadImage);
 app.post('/api/pythonVectorScript', vectorizeImage);
 app.post('/api/pythonCompareScript', compareImage);
-
+app.get('/api/getSimilarImages', getSimilarImages);
 app.listen(port, () => console.log(`listening on port ${port}`));

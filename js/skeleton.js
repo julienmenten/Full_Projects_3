@@ -1,10 +1,9 @@
 // ========= VARS ========== //
 // ========= VARS ========== //
 "use strict"
-
 let liveData = true;
 // fill in kinectron ip address here ie. "127.16.231.33"
-let kinectronIpAddress = "10.3.208.36";
+let kinectronIpAddress = "10.3.208.70";
 // declare kinectron
 let kinectron = null;
 let lastX;
@@ -31,7 +30,7 @@ let recorded_skeleton;
 let recorded_data_file = "./recorded_skeleton.json";
 let brushindex = [];
 // Timer voor refresh variables
-let timer = 15;
+let timer = 20;
 
 console.log(brushcounter);
 
@@ -257,7 +256,7 @@ jQuery(document).ready(function () {
     $("#timer").html(timer);
     timer--;
     if (timer == 0) {
-      timer = 15;
+      timer = 20;
       // CODE VOOR RESULTAAT OP TE SLAAN
       downloadCanvas();
     }
@@ -266,11 +265,14 @@ jQuery(document).ready(function () {
 
 
   function downloadCanvas() {
+    console.log('downloadCanvas');
+
     var canvas = document.getElementById("defaultCanvas0");
     var base64String = canvas.toDataURL("image/jpg");
     //  download(base64String);
     $(".downloadImage").submit(function (e) {
       e.preventDefault();
+      
       $.ajax({
         type: "POST",
         url: "http://localhost:3000/api/uploadImage",
@@ -279,7 +281,7 @@ jQuery(document).ready(function () {
         }, // serializes the form's elements.
         success: function (data) {
           console.log(data);
-          window.location.replace("../pages/result.html");
+          window.location.replace("pages/result.html");
           // background(255); // show response from the php script.
         }
       });

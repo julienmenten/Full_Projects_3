@@ -8,7 +8,7 @@
     <title>Resultscreen </title>
     <link rel="stylesheet" href="../css/result.css">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery.js"></script>
     <!-- <script src="../js/jquery.fittext.js"></script>  -->
     <script src="../js/result.js"></script>
     <!-- <script src="../js/jquery.countdown360.min.js"></script> -->
@@ -27,18 +27,18 @@
         <div class="paintings">
             <div class="frame" id="yourPainting">
                 <div class='painting-wrap'>
-                    <!-- <img src="../img/resultPage/frame.png" alt="frame"> -->
+                    <img src="../img/resultPage/frame.png" alt="frame">
                     <!-- RESULTAAT VAN DE SPELERS HIER PLAATSEN-->
-                    <img id="paintedImage" class="painting" src="../img/resultPage/james-ensor-the-intrigue-1890.jpg"
+                    <img id="paintedImage" class="painting original" src="../img/resultPage/james-ensor-the-intrigue-1890.jpg"
                         alt="">
                 </div>
             </div>
             <div class="frame" id="resultPainting">
 
-                <!-- <img src="../img/resultPage/frame.png" alt="frame"> -->
+                <img src="../img/resultPage/frame.png" alt="frame">
                 <!-- VERGELEKEN BEELD (AI) HIER PLAATSEN -->
                 <div class='painting-wrap'>
-                    <img id="paintedImage" class="painting" src="../backEnd/tensorflow/result/result.jpg" alt="">
+                    <img id="paintedImage" class="painting fake" src="../backEnd/result/result.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -52,10 +52,10 @@
 
 
 
-<!-- 
+
     <form method="post" class="compareImage hide" action="#">
         <button type='submit' name="submit"></button>
-    </form> -->
+    </form>
 
 
 </body>

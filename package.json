@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "osc": "^2.3.1",
     "python-shell": "^1.0.8"
   }
 }

@@ -3,7 +3,6 @@ from scipy import spatial
 from nltk import ngrams
 import random, json, glob, os, codecs, random
 import numpy as np
-import sys
 
 # data structures
 file_index_to_file_name = {}
@@ -12,7 +11,7 @@ chart_image_positions = {}
 
 # config
 dims = 2048
-n_nearest_neighbors = 30
+n_nearest_neighbors = 100
 trees = 10000
 infiles = glob.glob('image_vectors/*.npz')
 
@@ -50,5 +49,3 @@ for i in file_index_to_file_name.keys():
 
   with open('nearest_neighbors/' + master_file_name + '.json', 'w') as out:
     json.dump(named_nearest_neighbors, out)
-
-
