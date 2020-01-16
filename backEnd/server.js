@@ -3,12 +3,11 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require("path");
-const $ = require("jquery");
+// const $ = require("jquery");
 const cors = require('cors');
-const osc = require("osc");
+// const osc = require("osc");
 const bodyparser = require("body-parser")
-const imageToVectorize = "result/result.jpg"
-var request = require('request');
+// var request = require('request');
 const {
     PythonShell
 } = require('python-shell')
@@ -16,7 +15,7 @@ const {
 
 let classify = 'classify_images.py';
 let pythonExecutable = "C:/Users/Tom/Anaconda3/envs/3.5/python.exe";
-let pictureToVectorize = "result/result.jpg";
+let pictureToVectorize = "artworks/result.jpg";
 let clusterVectors = 'cluster_vectors.py';
 
 let options = {
@@ -41,7 +40,7 @@ app.use(cors());
 const uploadImage = async (req, res, next) => {
     try {
         let imageBody = req.body.photo;
-        const path = 'result/result.jpg'
+        const path = 'artworks/result.jpg'
         data = imageBody.replace(/^data:image\/\w+;base64,/, '');
         fs.writeFileSync(path, data, {
             encoding: 'base64'
@@ -83,14 +82,16 @@ let compareImage =  (req, res) => {
 // =======  Get similar images ========
 // =======  Get similar images ========
 const getSimilarImages = async (req, res, next) => {
-    // request('C:/wamp64/www/project3/backEnd/nearest_neighbors/result.json', function (error, response, body) {
-    //     console.log(error)
-    //   if (!error && response.statusCode == 200) {
-    //     console.log(body)
-    //     res.send(body);// Print the google web page.
-    //   }
-    // })
+    
     res.sendFile(path.join(__dirname + "/nearest_neighbors", "result.json"))
+}
+
+const getJsonOfPainting = (req,res)=>{
+    res.sendFile(path.join(__dirname , "kunstwerken.json"));
+}
+
+const getLabels = (req,res)=>{
+    res.sendFile(path.join(__dirname , "image_to_labels.json"));
 }
 
 
@@ -98,4 +99,7 @@ app.post('/api/uploadImage', uploadImage);
 app.post('/api/pythonVectorScript', vectorizeImage);
 app.post('/api/pythonCompareScript', compareImage);
 app.get('/api/getSimilarImages', getSimilarImages);
+app.get('/api/getJsonOfPainting', getJsonOfPainting);
+app.get('/api/getLabels', getLabels);
+
 app.listen(port, () => console.log(`listening on port ${port}`));

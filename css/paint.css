@@ -1,0 +1,104 @@
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#uploadImage{
+    display: none;
+  }
+#timer{
+  font-family: Gotham_Bold;
+}
+/* ========== Frame ========== */
+/* ========== Frame ========== */
+
+
+  /* ========== Brushes ========== */
+/* ========== Brushes ========== */
+nav {
+  position: absolute;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  bottom: 45px;
+  
+  height: 50px;
+  align-items: center;
+  background: rgb(34, 34, 34);
+}
+
+nav ul {
+  padding: 0em;
+  width: calc(100% - 50px);
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+nav li {
+  list-style: none;
+  font-weight: 300;
+  color: white;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+nav li.hoverBrush{
+  cursor: pointer;
+  background: rgb(34, 34, 34);
+  padding-top: 15px;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.2);
+}
+
+nav li article {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav li section {
+  position: relative;
+}
+
+form.hide{
+  display:none;
+}
+#defaultCanvas0{
+  position: absolute;
+  width:100%;
+  top:0;
+  z-index:-1;
+}
+#defaultCanvas1{
+  position: absolute;
+  width:100%;
+  top:0;
+  z-index:-1;
+}
+#defaultCanvas2{
+  position: absolute;
+  width:100%;
+  top:0;
+  z-index:-1;
+  
+}
+
+/* ========== Users ========== */
+/* ========== Users ========== */
+.user{
+  position: absolute;
+  top: 0;
+  left: 0;
+}

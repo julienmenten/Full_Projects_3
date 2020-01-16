@@ -1,7 +1,7 @@
 'use strict';
 
 $(function () {
-    $(".fake").attr("src", `../backEnd/result/result.jpg`)
+    $(".fake").attr("src", `../backEnd/artworks/result.jpg`)
     console.log('result.js beginning');
 
     $.ajax({
@@ -20,7 +20,31 @@ $(function () {
             }).done(function (data) {
                 console.log(data[1].filename);
                 let imageName = data[1].filename;
-                $(".original").attr("src", `../backEnd/result/${imageName}.jpg`)
+                $(".original").attr("src", `../backEnd/artworks/${imageName}.jpg`)
+                $.ajax({
+                    method:"get",
+                    url: "http://localhost:3000/api/getJsonOfPainting"
+                }).done(function(result){
+                    // console.log(result)
+                    for(let schilderij in result){
+                        if(result[schilderij].url == imageName + ".jpg"){
+                            console.log(result[schilderij]);
+                            console.log(result[schilderij].title);
+                            console.log(result[schilderij].artist);
+                            console.log(result[schilderij].description);
+                            console.log(result[schilderij].location);
+                            console.log(result[schilderij].year);
+                        }
+                        
+                    }
+                    $.ajax({
+                        method:"get",
+                        url: "http://localhost:3000/api/getLabels"
+                    }).done(function(result){
+                        console.log(result)
+                        
+                    })
+                })
             });
 
         });

@@ -1,15 +1,4 @@
-@font-face {
-    font-family: Gotham_Bold;
-    src: url(../fonts/Gotham-Bold.otf);
-  }
-  @font-face {
-    font-family: Gotham_Light;
-    src: url(../fonts/Gotham-Light.otf);
-  }
-  @font-face {
-    font-family: Gotham_Thin;
-    src: url(../fonts/Gotham-Thin.otf);
-  }
+
 *{
     margin: 0;
     padding: 0;
