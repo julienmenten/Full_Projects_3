@@ -134,18 +134,13 @@ function bodyTracked(body) {
   }
   //zet body in hands object
   newHands[body.trackingId] = body;
-
+  
   //count users
   var count = Object.keys(newHands).length;
   if (count == 1) {
-    $(".user").removeClass("popupUser");
-    $("nav li").first().find(".color-user").addClass("blackBG");
-    $("#firstPlayer").find(".color-user").addClass("blackBG");
-    $("#firstPlayer").addClass("popupUser");
+    $("#firstPlayer").addClass("popupUser")
   } else if (count == 2) {
-    $("#secondPlayer").addClass("popupUser");
-    $("#secondPlayer").find(".color-user").addClass("redBG");
-    $("nav li:nth-child(2)").find(".color-user").addClass("redBG");
+    $("#secondPlayer").addClass("popupUser")
   } else if (count > 2) {
   }
 
@@ -242,13 +237,16 @@ canvas = new p5(cursorSketch);
 console.log(canvas);
 jQuery(document).ready(function () {
   setInterval(() => {
-
-    $("#timer").html(timer);
+    let barWidth = $("#timeBar").width() - ($("#timeBar").width()/timer);
+    $("#timerClock").html(timer);
+    $("#timeBar").css({ "width": barWidth });
     timer--;
+    
     if (timer == 0) {
-      timer = 90;
+      timer = 20;
+      $("#timeBar").css({"width": "100%"});
       // CODE VOOR RESULTAAT OP TE SLAAN
-      downloadCanvas();
+      // downloadCanvas();
     }
   }, 1000);
 

@@ -22,27 +22,34 @@ $(function () {
                 let imageName = data[1].filename;
                 $(".original").attr("src", `../backEnd/artworks/${imageName}.jpg`)
                 $.ajax({
-                    method:"get",
+                    method: "get",
                     url: "http://localhost:3000/api/getJsonOfPainting"
-                }).done(function(result){
+                }).done(function (result) {
                     // console.log(result)
-                    for(let schilderij in result){
-                        if(result[schilderij].url == imageName + ".jpg"){
+                    for (let schilderij in result) {
+                        if (result[schilderij].url == imageName + ".jpg") {
                             console.log(result[schilderij]);
-                            console.log(result[schilderij].title);
-                            console.log(result[schilderij].artist);
-                            console.log(result[schilderij].description);
-                            console.log(result[schilderij].location);
-                            console.log(result[schilderij].year);
+                            $("#resultTitle").text(result[schilderij].title);
+                            $(".artistName").text(result[schilderij].artist)
+                            $(".paintingYear").text(result[schilderij].year)
+                            $("#resultDescription").text(result[schilderij].description)
+                            $("#resultLocation").text(result[schilderij].location);
+
                         }
-                        
+
                     }
                     $.ajax({
-                        method:"get",
+                        method: "get",
                         url: "http://localhost:3000/api/getLabels"
-                    }).done(function(result){
+                    }).done(function (result) {
                         console.log(result)
-                        
+                        console.log(result[0]);
+
+                        $("#similarities").append(result[similarity].labels)
+
+
+
+
                     })
                 })
             });

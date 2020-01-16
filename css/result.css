@@ -1,153 +1,102 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Gotham_Light, sans-serif;
+article#resultPopUp {
+    width: 100%;
+    background: #141414;
     color: white;
-}
-#resultPopUp{
     height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.90);
-    display: grid;
-    grid-template-columns:0px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0px;
-    grid-column-gap: 20px;
-    grid-template-rows: 20px 100px 100px 100px 100px 100px 100px 100px 100px 100px 20px;
 }
-#resultInformation{
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 4;
-    grid-row-end:8;
-    display: grid;
-    grid-template-rows: 100px 50px 40px 1fr 80px;
-    width: 100%;
+
+section.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
-#resultTitle{
+
+section.columns {
+    padding: 2em 0;
+    width: 50%;
+}
+
+article.timer-wrapper {
+    padding-top: 2em;
+}
+#timer-container{
+    width: 90%;
+}
+
+/* INFO WRAPPER */
+section.columns.info-wrapper {
+    width: 40%;
+    display: inline-block;
+}
+
+section.columns.info-wrapper h3 {
+    text-transform: uppercase;
+    font-family: Gotham_Light;
+    margin-bottom: 0.5em;
+    font-size: 18px;
+}
+
+section.columns.info-wrapper #resultTitle {
+    text-transform: uppercase;
     font-family: Gotham_Bold;
-    text-transform: uppercase;
-    font-size: 100%;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 1;
-    grid-row-end:2;
-    align-self: end;
+    font-size: 3em;
 
 }
-h3{
-    font-family: Gotham_Thin;
-    grid-column-start: 3;
-    grid-column-end: 6;
-    grid-row-start: 3;
-    grid-row-end:4;
-    font-size: 2rem;
-    text-transform: uppercase;
-    align-self: end;
-}
-#resultArtist{
-    font-family: Gotham_Thin;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    justify-self: end;
-    align-self: end;
-}
-.artistLastName{
-    text-transform: uppercase;
-}
-#resultYear{
-    font-family: Gotham_Thin;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    justify-self: start;
-    align-self: end;
-}
-#resultDescription{
-    font-family: Gotham_Thin;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 4;
-    grid-row-end: 5; 
-    line-height: 140%;
-}
-#resultLocation{
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 5;
-    grid-row-end: 6;
-    align-self: end;
-}
 
-.paintings{
-    grid-column-start: 8;
-    grid-column-end: 13;
-    grid-row-start: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 20px;
-    width: 100%;
-   
-}
-
-#yourPainting{
-    margin-top: 20px;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    transform: rotate(-6deg);
-}
-#resultPainting{
-    margin-top: 20px;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    transform: rotate(6deg);
-}
-.frame{
-    position: relative;
-   
-}
-.frame img{
-    width: 100%;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-top: 20px;
-}
-.painting{
-    position: absolute;
-    left: 0;
-    top: 37.5px;
-    z-index: -1;
-    transform: scale(0.67);
-}
-#logoKMSKA{
-    grid-column-start: 12;
-    grid-column-end: 13;
-    grid-row-start: 9;
-    grid-row-end: 10;
-    align-self: center;
-}
-#logoKMSKA img{
-    width: 100%;
-}
-#countdown{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 9;
-    grid-row-end: 10;
-    align-self: center;
-    justify-self: center;
-    position: relative;
-}
-#countdown p{
+section.columns.info-wrapper #resultYear {
     font-family: Gotham_Bold;
-    font-size: 2rem;
-    position: relative;
+    font-size: 18px;
+    margin-bottom: 0.5em;
 }
-#countdown div{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+section.columns.info-wrapper #resultArtist {
+    font-family: Gotham_Light;
+    font-size: 20px;
+    margin: 0.5em 0;
+}
+
+section.columns.info-wrapper #resultLocation {
+    font-family: Gotham_Bold;
+    margin-top: 2em;
+    color: var(--redBg);
+    font-size: 22px;
+    margin-bottom: 0.5em;
+}
+
+section.columns.info-wrapper #resultSimilarity {
+    margin: 0.5em 0;
+}
+
+#resultDescription {
+    margin-top: 2em;
+    line-height: 20px;
+    text-align: left;
+}
+
+/* IMAGE WRAPPER */
+section.columns.images-wrapper figure section {
+    width: 60%;
+    display: inline-block;
+    margin: 1em 0;
+}
+
+section.columns.images-wrapper figure section#ourPainting {
+    width: 100%;
+
+}
+
+section.columns.images-wrapper figure section#resultPainting {
+    width: 100%;
+}
+
+section.columns.images-wrapper figure img.fake {
+    width: 50%;
+    float: right;
+}
+
+section.columns.images-wrapper figure img.original {
+    width: 70%;
 }

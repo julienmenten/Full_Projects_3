@@ -1,190 +1,55 @@
+@font-face {
+  font-family: Gotham_Bold;
+  src: url(../fonts/Gotham-Bold.otf);
+}
+@font-face {
+  font-family: Gotham_Light;
+  src: url(../fonts/Gotham-Light.otf);
+}
+@font-face {
+  font-family: Gotham_Thin;
+  src: url(../fonts/Gotham-Thin.otf);
+}
+
 /* ========== Constants ========== */
 /* ========== Constants ========== */
 :root {
-  --redBG: #FF003C;
-  --green: #00ffb2;
-  --lightgrey: #F7F7F7;
-  --mediumgrey: #909090;
-  --blackBG: #202020;
+  --blueBg: #6F7FC1;
+  --yellowBg: #F4EA5E;
+  --orangeBg: #E58B4F;
+  --redBg: #CA505D;
+  --greenBg: #72A060;
 }
-.blackBG{
-  background:var(--blackBG);
+.blueBg{
+  background:var(--blueBg);
 }
-.redBG{
-  background:var(--redBG);
+.yellowBg{
+  background:var(--yellowBg);
 }
+.orangeBg{
+  background:var(--orangeBg);
+}
+.redBg{
+  background:var(--redBg);
+}
+.greenBg{
+  background:var(--greenBg);
+}
+
 /* ========== Main ========== */
 /* ========== Main ========== */
 html,
 body,
 * {
-
-  margin: 0;
-  padding: 0;
-
+  font-family: Gotham_Light;
 }
 
-body {
-  overflow: hidden;
-  height: 100vh;
-}
-#timer{
-  position: absolute;
-  color: black;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-}
+
 #uploadImage{
   display: none;
 }
-/* ========== Users ========== */
-/* ========== Users ========== */
-.users-container {
-  position: absolute;
-  bottom: 40px;
-  left: 50px;
-  width: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-.users-wrap {
-display: inline-block;
-overflow: hidden;
-}
-.user-child {
-  position: absolute;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  bottom: -100px;
-  transition: 0.2s ease-in-out;
-}
-
-.user-child:nth-child(2) {
-  position: absolute;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  left: 100px;
-  bottom: -100px;
-}
-
-.user-child:hover {
-  bottom: 0px;
-}
-
-.popupUser {
-  bottom: 0px !important;
-}
-
-.user-child figure {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.user-child figure img {
-  width: 100%;
-}
-
-.user-child .color-user {
-  position: absolute;
-  width: 10px;
-  right: -0px;
-  box-shadow: 0px 0px 5px 3px #1ccfc4;
-  top: -6px;
-  height: 10px;
-  border-radius: 100px;
-}
-
-/* ========== Frame ========== */
-/* ========== Frame ========== */
-#frame {
-  width: calc(100% - 100px);
-    height: calc(100vh - 98px);
-    position: absolute;
-    overflow: hidden;
-    border: 50px solid #fFFF;
-    border-bottom-color: rgb(216, 189, 163);
-    border-left-color: rgb(214, 183, 153);
-    border-radius: 2px;
-    border-right-color: rgb(214, 183, 153);
-    border-top-color: rgb(211, 166, 124);
-    box-shadow: 0 0 5px 0 rgba(216, 95, 8, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
-    
-}
-
-/* ========== Brushes ========== */
-/* ========== Brushes ========== */
-nav {
-  position: absolute;
-  padding: 0;
-width: 100%;
-  display: flex;
-  bottom: 45px;
-  
-  height: 50px;
-  align-items: center;
-  background: rgb(34, 34, 34);
-}
-
-nav ul {
-  padding: 0em;
-  width: calc(100% - 50px);
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-}
-
-nav li {
-  list-style: none;
-  font-weight: 300;
-  color: white;
-  font-weight: 500;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 1em;
-  padding-bottom: 1em;
-  padding-top: 1em;
-}
-
-nav li.hoverBrush{
-  cursor: pointer;
-  background: rgb(34, 34, 34);
-  padding-top: 15px;
-  transition: 0.2s ease-in-out;
-  transform: scale(1.2);
-}
-
-nav li article {
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav li article p {
-  margin-right: 1em;
-}
-
-nav li article img {
-  width: 30px;
-}
 
 
-nav li section {
-  position: relative;
-}
-
-nav .color-user {
-  position: absolute;
-  width: 10px;
-  right: -0px;
-  box-shadow: 0px 0px 5px 3px #1ccfc4;
-  top: -6px;
-  height: 10px;
-  border-radius: 100px;
-}
 
 form.hide{
   display:none;
@@ -193,7 +58,7 @@ form.hide{
   position: absolute;
   width:100%;
   top:0;
-  z-index:-2;
+  z-index:-1;
 }
 #defaultCanvas1{
   position: absolute;
@@ -208,6 +73,30 @@ form.hide{
   z-index:-1;
   
 }
-
-
-
+/* ========== Timer ========== */
+/* ========== Timer ========== */
+#timer-container{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+.timeBarBackground{
+  width: 100%;
+  background-color: rgba(236, 79, 65, 0.5);
+  height: 4px;
+  display: flex;
+  justify-content: center;
+}
+#timeBar{
+  background-color: #ec4f41;
+  height: 4px;
+  width: 100%;
+  transition: 1s;
+}
+#timerClock{
+  justify-self: center;
+  font-family: Gotham_Bold, sans-serif;
+  font-size: 26px;
+}

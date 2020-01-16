@@ -1,1 +1,1 @@
-{"artworks/result.jpg": [{"labels": "jack-o'-lantern", "score": "0.18593645"}, {"labels": "pill bottle", "score": "0.051057097"}, {"labels": "nipple", "score": "0.04596072"}, {"labels": "eft", "score": "0.039835174"}, {"labels": "Band Aid", "score": "0.036619745"}]}
+{"artworks/result.jpg": [{"score": "0.18593645", "labels": "jack-o'-lantern"}, {"score": "0.051057097", "labels": "pill bottle"}, {"score": "0.04596072", "labels": "nipple"}, {"score": "0.039835174", "labels": "eft"}, {"score": "0.036619745", "labels": "Band Aid"}]}
