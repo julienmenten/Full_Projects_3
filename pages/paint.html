@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<!--
+    * Writed by
+    * (c) 2020 
+    * Toon, Wouter, Julien, Tom, Andres
+    * KINECTRON: https://cdn.jsdelivr.net/gh/kinectron/kinectron@0.3.0/client/dist/kinectron-client.js
+    * JQUERY: https://code.jquery.com/jquery-3.4.1.min.js
+    * RESET: https://gist.github.com/DavidWells/18e73022e723037a50d6
+    * P5: https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js
+   -->
+
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KMSKA: Paint </title>
+  <!-- Script -->
+  <script src="../js/kinectron.js"></script>
+  <script src="../js/p5.min.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/kinectron.bundle.js" type="text/javascript"></script>
+  <!-- Link -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/master.css">
+  <link rel="stylesheet" type="text/css" href="../css/paint.css">
+</head>
+
+<body>
+  <!-- ========== HEADER ==========  -->
+  <!-- ========== HEADER ==========  -->
+  <header>
+
+
+    <!-- ========== NAV ==========  -->
+    <!-- ========== NAV ==========  -->
+    <nav>
+      <ul>
+        <li class="red">
+          <section>
+          </section>
+        </li>
+        <li class="orange">
+          <section>
+          </section>
+        </li>
+        <li class="yellow">
+          <section>
+          </section>
+
+        </li>
+        <li class="blue">
+          <section>
+          </section>
+
+        </li>
+        <li class="green">
+          <section>
+          </section>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== USERS ==========  -->
+    <!-- ========== USERS ==========  -->
+    <section class='top-container '>
+      <article class='user-child user' id='firstPlayer'>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+          <path id="corner" class="st0" d="M7.6,0.6h11.8v7.1H7.6v11.8H0.6V0.6H7.6z"></path>
+        </svg>
+        <div class="color-user "></div>
+
+      </article>
+      <section id="timer-container">
+        <div class="timeBarBackground">
+          <div id="timeBar"></div>
+        </div>
+        <h1 id="timerClock">90</h1>
+      </section>
+      <article class='user-child user' id='secondPlayer'>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+          <path id="corner" class="st0" d="M7.6,0.6h11.8v7.1H7.6v11.8H0.6V0.6H7.6z"></path>
+        </svg>
+        <div class="color-user"></div>
+      </article>
+    </section>
+    <!-- ========== FRAME ==========  -->
+    <!-- ========== FRAME ==========  -->
+    <section id="#frame"></section>
+    <form method="post" class="downloadImage hide" action="#">
+      <button type='submit' name="submit"></button>
+    </form>
+    <!-- ========== LIVE FEEDBACK ==========  -->
+    <!-- ========== LIVE FEEDBACK ==========  -->
+    <section id="live-feedback-container">
+      <article id="meester">
+        <img class="bounce"src="../img/meesters/person3.gif" alt="">
+      </article>
+      <article class="speech-bubble">
+        <p>Hmm, ik denk dat jij dit aan het schilderen bent:</p>
+        <section class="live-image-container">
+          <!-- FOTO HIER INLADEN -->
+          <img src="" alt="" id="tijdelijkeImage">
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/skeleton.js"></script>
+</body>
+
+</html>

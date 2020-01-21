@@ -1,3 +1,5 @@
+//*********URL:  https://cdn.jsdelivr.net/gh/kinectron/kinectron@0.3.0/client/dist/kinectron-client.js *********//
+
 // modules are defined as an array
 // [ module function, map of requires ]
 //

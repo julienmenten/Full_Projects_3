@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.2",
     "python-shell": "^1.0.8",
+    "qrcode": "^1.4.4",
     "request": "^2.88.0"
   }
 }

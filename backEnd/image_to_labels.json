@@ -1,1 +1,1 @@
-{"artworks/result.jpg": [{"score": "0.18593645", "labels": "jack-o'-lantern"}, {"score": "0.051057097", "labels": "pill bottle"}, {"score": "0.04596072", "labels": "nipple"}, {"score": "0.039835174", "labels": "eft"}, {"score": "0.036619745", "labels": "Band Aid"}]}
+{"artworks/result.jpg": [{"labels": "corkscrew, bottle screw", "score": "0.018697968"}, {"labels": "envelope", "score": "0.017746035"}, {"labels": "hook, claw", "score": "0.015499867"}, {"labels": "microphone, mike", "score": "0.015215804"}, {"labels": "whistle", "score": "0.014593192"}]}

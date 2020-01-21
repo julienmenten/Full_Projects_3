@@ -1,18 +1,27 @@
+/*!
+ * Writed by
+ * (c) 2020 
+ * Toon, Wouter, Julien, Tom, Andres
+ * BRONNEN
+ * URL: https://freefontsfamily.com/gotham-font-family/
+ */
 @font-face {
   font-family: Gotham_Bold;
   src: url(../fonts/Gotham-Bold.otf);
 }
+
 @font-face {
   font-family: Gotham_Light;
   src: url(../fonts/Gotham-Light.otf);
 }
+
 @font-face {
   font-family: Gotham_Thin;
   src: url(../fonts/Gotham-Thin.otf);
 }
 
-/* ========== Constants ========== */
-/* ========== Constants ========== */
+/* ========== CONSTANTS ========== */
+/* ========== CONSTANTS ========== */
 :root {
   --blueBg: #6F7FC1;
   --yellowBg: #F4EA5E;
@@ -20,82 +29,96 @@
   --redBg: #CA505D;
   --greenBg: #72A060;
 }
-.blueBg{
-  background:var(--blueBg);
-}
-.yellowBg{
-  background:var(--yellowBg);
-}
-.orangeBg{
-  background:var(--orangeBg);
-}
-.redBg{
-  background:var(--redBg);
-}
-.greenBg{
-  background:var(--greenBg);
+
+.blueBg {
+  background: var(--blueBg);
 }
 
-/* ========== Main ========== */
-/* ========== Main ========== */
+.yellowBg {
+  background: var(--yellowBg);
+}
+
+.orangeBg {
+  background: var(--orangeBg);
+}
+
+.redBg {
+  background: var(--redBg);
+}
+
+.greenBg {
+  background: var(--greenBg);
+}
+
+/* ========== MAIN ========== */
+/* ========== MAIN ========== */
 html,
 body,
 * {
+  margin: 0;
+  padding: 0;
   font-family: Gotham_Light;
 }
 
 
-#uploadImage{
+#uploadImage {
   display: none;
 }
 
 
 
-form.hide{
-  display:none;
+form.hide {
+  display: none;
 }
-#defaultCanvas0{
+
+#defaultCanvas0 {
   position: absolute;
-  width:100%;
-  top:0;
-  z-index:-1;
+  width: 100%;
+  top: 0;
+  z-index: -1;
 }
-#defaultCanvas1{
+
+#defaultCanvas1 {
   position: absolute;
-  width:100%;
-  top:0;
-  z-index:-1;
+  width: 100%;
+  top: 0;
+  z-index: -1;
 }
-#defaultCanvas2{
+
+#defaultCanvas2 {
   position: absolute;
-  width:100%;
-  top:0;
-  z-index:-1;
-  
+  width: 100%;
+  top: 0;
+  z-index: -1;
+
 }
-/* ========== Timer ========== */
-/* ========== Timer ========== */
-#timer-container{
+
+/* ========== TIMER ========== */
+/* ========== TIMER ========== */
+#timer-container {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
 }
-.timeBarBackground{
+
+.timeBarBackground {
   width: 100%;
   background-color: rgba(236, 79, 65, 0.5);
   height: 4px;
   display: flex;
   justify-content: center;
 }
-#timeBar{
+
+#timeBar {
   background-color: #ec4f41;
   height: 4px;
   width: 100%;
   transition: 1s;
 }
-#timerClock{
+
+#timerClock {
   justify-self: center;
   font-family: Gotham_Bold, sans-serif;
   font-size: 26px;
