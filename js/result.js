@@ -6,9 +6,9 @@
  */
 /*SECOND SCREEN*/
 'use strict';
-// import * as QRCode from './qrscript.js'
+let timer = 60;
 $(function () {
-    
+
     console.log('result.js beginning');
 
     //SEND IMAGE TO MAKE VECTORS
@@ -32,10 +32,7 @@ $(function () {
                 console.log(data[2].filename);
                 let imageName = data[2].filename;
                 $(".original").attr("src", `../backEnd/artworks/${imageName}.jpg`)
-                // var qrcode = new QRCode("qrcode", {
-                //     colorDark : "#187798",
-                //     colorLight : "#ffffff"
-                // });
+
                 //GET JSON WITH INFORMATION FROM IMAGE TO DISPLAY
                 $.ajax({
                     method: "get",
@@ -61,6 +58,7 @@ $(function () {
                     }).done(function (result) {
                         console.log(result)
                         console.log(result[0]);
+                        
 
 
                         // $("#similarities").append(result[similarity].labels)
@@ -76,6 +74,8 @@ $(function () {
         });
     });
 
+    
+
 
 
     window.setTimeout(function () {
@@ -87,30 +87,49 @@ $(function () {
         $('.right-text').delay(3000).fadeIn('slow');
     }, 1000);
     window.setTimeout(function () {
-        $('#loadingPopup div').hide();
-        $('#loadingPopup').css({
-            "width": "0",
-            'transition': "0.5s ease-in-out",
-            // "opacity": "0"
-        });
+  
         let element = $("#resultPopUp");
         let getCanvas;
         html2canvas(element, {
             onrendered: function (canvas) {
-                $("body").append(canvas);
+                // $("body").append(canvas);
                 console.log("gemaakt")
                 getCanvas = canvas;
                 let QRimage = getCanvas.toDataURL("image/jpg");
-                // console.log(QRimage)
-                // $.ajax({
-                //     data: {
-                //         "qr": QRimage
-                //       },
-                //     url:"localhost:3000/api/makeQR",
-                //     method:"POST"
-                // }).done(function(result){
-                //     console.log(result);
-                // })
+                $.ajax({
+                    method: "POST",
+                    url: "http://localhost:3000/api/uploadtoCloudinary",
+                    data: {
+                        "qr": QRimage
+                    }
+
+                }).done(function (result) {
+                    $("#qrcode-container section").append(`<img src="${result}" alt=""></img>`)
+                    $('#loadingPopup div').hide();
+                    $('#loadingPopup').css({
+                        "width": "0",
+                        'transition': "0.5s ease-in-out",
+                        // "opacity": "0"
+                    });
+                    setInterval(() => {
+                        let barWidth = $("#timeBar").width() - ($("#timeBar").width() / timer);
+                        $("#timeBar").css({
+                          "width": barWidth
+                        });
+                        timer--;
+                        
+                    
+                        if (timer == 0) {
+                            window.location.replace("../pages/tutorial.html");
+                          
+                          
+                          // CODE VOOR RESULTAAT OP TE SLAAN
+                        }
+                      }, 1000);
+                    
+                    // console.log(result);
+                })
+
             }
         });
 

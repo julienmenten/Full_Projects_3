@@ -54,7 +54,7 @@ colors[4] = [114, 160, 96];
 //index voor brush te kiezen
 let brushindex = [];
 // Timer voor refresh variables
-let timer = 30;
+let timer = 90;
 //preload the images to use
 function preload() {
   if (!liveData) {
@@ -221,33 +221,33 @@ function drawHand(hand, handState, size, brush, key) {
   if (handState === 0) {
     smooth();
     blendMode(BLEND)
-    stroke(colors[brush][0], colors[brush][1], colors[brush][2], 6)
+    stroke(colors[brush][0], colors[brush][1], colors[brush][2], 3)
     console.log()
-    let randomize = random(5,50);
+    let randomize = random(5);
     
     // line(lastX[key]*width + 10, lastY[key]*height -10, hand.depthX*width + 10, hand.depthY*height - 10);
     // line(lastX[key]*width + 8, lastY[key]*height - 8, hand.depthX*width +8 , hand.depthY*height -8);
     for(let i = 0;i<10;i++){
     line(lastX[key]*width + 10, lastY[key]*height - 10, hand.depthX*width + 10, hand.depthY*height - 10);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width + 6, lastY[key]*height - 6, hand.depthX*width + 6, hand.depthY*height - 6);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width + 3, lastY[key]*height - 3, hand.depthX*width + 3, hand.depthY*height - 3);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width, lastY[key]*height, hand.depthX*width, hand.depthY*height);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width - 3, lastY[key]*height + 3, hand.depthX*width - 3, hand.depthY*height + 3);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width - 6, lastY[key]*height + 6, hand.depthX*width - 6, hand.depthY*height + 6);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
     line(lastX[key]*width - 10, lastY[key]*height + 10, hand.depthX*width - 10, hand.depthY*height + 10);
-    randomize = random(40);
+    randomize = random(20);
     strokeWeight(randomize);
   }
     // line(lastX[key]*width - 8, lastY[key]*height + 8, hand.depthX*width - 8, hand.depthY*height + 8);
@@ -354,8 +354,8 @@ jQuery(document).ready(function () {
                   type: "get",
                   url: "http://localhost:3000/api/getSimilarImages"
               }).done(function (data) {
-                  console.log(data[4].filename);
-                  let imageName = data[4].filename;
+                  console.log(data[2].filename);
+                  let imageName = data[2].filename;
                   liveFeedbackPopUp();
                    $("#tijdelijkeImage").attr("src", `../backEnd/artworks/${imageName}.jpg`)
                   
