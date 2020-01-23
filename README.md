@@ -57,8 +57,10 @@ Dit is de stappenplan om het op te zetten van de prototype om demo's te geven:
     - https://kinectron.github.io/
 - Kinectron server v0.3.1
     - https://github.com/kinectron/kinectron/releases/tag/0.3.1
-
-
+- Cloudinary v1.19.0
+    - https://cloudinary.com/
+- QRcode v1.4.4
+    - https://www.npmjs.com/package/qrcode
 
 
 &copy; JameSensor
